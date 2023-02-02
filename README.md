@@ -23,6 +23,15 @@ You can see your score (without the checks for errors or warnings in your
 console and without the checks for erroneously or badly formatted code) at any time
 by running `npm run test-with-json`.
 
+> There are some tests that are worth more than one point. When you run `npm run
+> test-with-json`, you will see something like this _(the specific numbers may
+> be different for you)_:
+>
+> ![test-with-json-screenshot](https://appacademy-open-assets.s3.us-west-1.amazonaws.com/Module-Assessments/assets/test-with-json-screenshot.png)
+> - The **"tests"** key is the total number of points achievable.
+> - The **"passes"** key is how many points you have achieved currently.
+> - The **"failures"** key is how many points you are not getting.
+
 ## Resources
 
 You can use any of the following resources during this assessment:
@@ -193,11 +202,12 @@ data file as a prop to the `FruitForm` called `fruits`. The prop passed into
 as a prop in `FruitsIndex`.
 
 Take a look at the `FruitForm` component. The `<form>` and its inputs have
-already been created for you. **Make the name, sweetness, and color inputs into
-controlled inputs**. The name field should be initialized to an empty string.
-The sweetness field should be initialized to 1, and the color field should be
-initialized to the first color in the `COLORS` constant variable defined at the
-top of the component file. The seeds field should be initialized to "yes".
+already been created for you. **Make the name, sweetness, seeds, and color
+inputs into controlled inputs**. The name field should be initialized to an
+empty string. The sweetness field should be initialized to 1, and the color
+field should be initialized to the first color in the `COLORS` constant variable
+defined at the top of the component file. The seeds field should be initialized
+to "yes".
 
 Create the following form validations with the error messages rendered in the
 `ul.errors` element. (Hint: use `useEffect` with `useState`.)
