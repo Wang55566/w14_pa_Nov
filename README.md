@@ -209,15 +209,15 @@ field should be initialized to the first color in the `COLORS` constant variable
 defined at the top of the component file. The seeds field should be initialized
 to "yes".
 
-Create the following form validations with the error messages rendered in the
-`ul.errors` element. (Hint: use `useEffect` with `useState`.)
+Create the following form validations with the error messages rendered in
+`p.errors` elements below the respective input. (i.e. Name errors should appear below the Name input/label) (Hint: use `useEffect` with `useState`.)
 
 | Field     | Condition                          | Error Message                        |
 | --------- | ---------------------------------- | ------------------------------------ |
-| Name      | Less than 3 characters             | "Name must be 3 or more characters"  |
-| Name      | More than 20 characters            | "Name must be 20 characters or less" |
+| Name      | Less than 3 characters             | "Name must be 3 or more characters."  |
+| Name      | More than 20 characters            | "Name must be 20 characters or less." |
 | Name      | Uniqueness                         | "Name already exists."               |
-| Sweetness | Less than 1 **or** Greater than 10 | "Sweetness must be between 1 and 10" |
+| Sweetness | Less than 1 **or** Greater than 10 | "Sweetness must be between 1 and 10." |
 
 **The errors must be handled dynamically and be checked on initial render and
 after every change in user input, not during form submission.**

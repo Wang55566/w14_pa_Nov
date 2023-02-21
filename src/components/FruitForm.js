@@ -14,8 +14,6 @@ function FruitForm({ fruits }) {
       className="fruit-form"
     >
       <h2>Enter a Fruit</h2>
-      <ul className="errors">
-      </ul>
       <label>
         Name
         <input

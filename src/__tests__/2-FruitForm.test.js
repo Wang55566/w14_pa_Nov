@@ -65,46 +65,46 @@ describe('(18 points) FruitForm', () => {
     expect(fruitForm.find('input[type="radio"]').at(1).props().checked).toEqual(false);
   });
   
-  test ('(1 points) FruitForm shows an error in "ul.errors" if name is less than 3 characters', () => {
+  test ('(1 points) FruitForm shows an error in "p.errors" if name is less than 3 characters', () => {
     const fruitForm = mount(
       <FruitForm fruits={fruits} />
     );
   
     expect(fruitForm.find('input[name="name"]').props().value).toEqual("");
-    expect(fruitForm.find('ul.errors').children()).toHaveLength(1);
+    expect(fruitForm.find('p.errors').children()).toHaveLength(1);
   });
   
-  test ('(1 points) FruitForm shows an error in "ul.errors" if name more than 20 characters', () => {
+  test ('(1 points) FruitForm shows an error in "p.errors" if name more than 20 characters', () => {
     const fruitForm = mount(
       <FruitForm fruits={fruits} />
     );
   
     expect(fruitForm.find('input[name="name"]').props().value).toEqual("");
     fruitForm.find('input[name="name"]').simulate('change', { target: { value: "This is 21 characters" } });
-    expect(fruitForm.find('ul.errors').children()).toHaveLength(1);
+    expect(fruitForm.find('p.errors').children()).toHaveLength(1);
   });
 
-  test ('(1 points) FruitForm shows an error in "ul.errors" if name already exists', () => {
+  test ('(1 points) FruitForm shows an error in "p.errors" if name already exists', () => {
     const fruitForm = mount(
       <FruitForm fruits={fruits} />
     );
   
     expect(fruitForm.find('input[name="name"]').props().value).toEqual("");
     fruitForm.find('input[name="name"]').simulate('change', { target: { value: "Apple" } });
-    expect(fruitForm.find('ul.errors').children()).toHaveLength(1);
+    expect(fruitForm.find('p.errors').children()).toHaveLength(1);
   });
   
-  test ('(1 points) FruitForm does not show any errors in "ul.errors" if name filled in', () => {
+  test ('(1 points) FruitForm does not show any errors in "p.errors" if name filled in', () => {
     const fruitForm = mount(
       <FruitForm fruits={fruits} />
     );
   
     expect(fruitForm.find('input[name="name"]').props().value).toEqual("");
     fruitForm.find('input[name="name"]').simulate('change', { target: { value: "Blueberry" } });
-    expect(fruitForm.find('ul.errors').children()).toHaveLength(0);
+    expect(fruitForm.find('p.errors').children()).toHaveLength(0);
   });
   
-  test ('(1 points) FruitForm shows an error in "ul.errors" if sweetness is less than 1', () => {
+  test ('(1 points) FruitForm shows an error in "p.errors" if sweetness is less than 1', () => {
     const fruitForm = mount(
       <FruitForm fruits={fruits} />
     );
@@ -112,10 +112,10 @@ describe('(18 points) FruitForm', () => {
     expect(fruitForm.find('input[name="name"]').props().value).toEqual("");
     expect(fruitForm.find('input[name="sweetness"]').props().value).toEqual(1);
     fruitForm.find('input[name="sweetness"]').simulate('change', { target: { value: "0" } });
-    expect(fruitForm.find('ul.errors').children()).toHaveLength(2);
+    expect(fruitForm.find('p.errors').children()).toHaveLength(2);
   });
   
-  test ('(1 points) FruitForm shows an error in "ul.errors" if sweetness is greater than 10', () => {
+  test ('(1 points) FruitForm shows an error in "p.errors" if sweetness is greater than 10', () => {
     const fruitForm = mount(
       <FruitForm fruits={fruits} />
     );
@@ -123,7 +123,7 @@ describe('(18 points) FruitForm', () => {
     expect(fruitForm.find('input[name="name"]').props().value).toEqual("");
     expect(fruitForm.find('input[name="sweetness"]').props().value).toEqual(1);
     fruitForm.find('input[name="sweetness"]').simulate('change', { target: { value: "11" } });
-    expect(fruitForm.find('ul.errors').children()).toHaveLength(2);
+    expect(fruitForm.find('p.errors').children()).toHaveLength(2);
   });
   
   test ('(1 points) FruitForm is used by the App component', () => {
@@ -135,13 +135,15 @@ describe('(18 points) FruitForm', () => {
     const fruitForm = mount(
       <FruitForm fruits={fruits} />
     );
+
+    console.log("here is what i found => ", fruitForm.find('p.errors'))
   
     expect(fruitForm.find('input[name="name"]').props().value).toEqual("");
-    expect(fruitForm.find('ul.errors').children()).toHaveLength(1);
+    expect(fruitForm.find('p.errors').children()).toHaveLength(1);
     expect(fruitForm.find('button').props().disabled).toBe(true);
     fruitForm.find('input[name="name"]').simulate('change', { target: { value: "Blueberry" } });
     expect(fruitForm.find('input[name="name"]').props().value).toEqual("Blueberry");
-    expect(fruitForm.find('ul.errors').children()).toHaveLength(0);
+    expect(fruitForm.find('p.errors').children()).toHaveLength(0);
     expect(fruitForm.find('button').props().disabled).toBe(false);
   });
   
